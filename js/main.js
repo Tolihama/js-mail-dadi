@@ -1,22 +1,45 @@
-// Refs DOM
+// GENERAL Refs DOM
 const btnMail = document.querySelector('.btn-mail');
 const btnDadi = document.querySelector('.btn-dadi');
 
-
-
-
 /*
- * Mail system
+ * Mail system script
  */
 
 // Mail list
-const mailList = ['pinco@pallo.it', 'pallo@pinco.it', 'nonno@libero.it'];
+btnMail.addEventListener('click', function() {
+    // DOM refs
+    const mailInput = document.getElementById('email');
+    const mailResult = document.querySelector('.mail-result');
 
+    // Data input
+    const mailList = ['pinco@pallo.it', 'pallo@pinco.it', 'nonno@libero.it'];
+    const mail = mailInput.value.trim().toLowerCase();
 
+    // Mail input check
+    if (mail === '') {
+        alert('Inserire indirizzo e-mail');
+    } else {
+        let emailFound = false;
+
+        for (let i = 0; i < mailList.length; i++) {
+            if (mailList[i] === mail) {
+                emailFound = true;
+                break;
+            }
+        }
+
+        if (emailFound) {
+            mailResult.innerHTML = 'Indirizzo trovato.';
+        } else {
+            mailResult.innerHTML = 'Indirizzo NON trovato.';
+        }
+    }
+})
 
 
 /*
- * Dadi
+ * Dadi Script
  */ 
 btnDadi.addEventListener('click', function() {
     // DOM refs
@@ -29,15 +52,15 @@ btnDadi.addEventListener('click', function() {
     const computerNumber = Math.floor((Math.random() * 6) + 1);
 
     // Random print
-    playerResult.innerHTML += `User: ${userNumber}`;
-    computerResult.innerHTML += `Computer: ${computerNumber}`;
+    playerResult.innerHTML = `User: ${userNumber}`;
+    computerResult.innerHTML = `Computer: ${computerNumber}`;
 
     // Win conditional
     if (userNumber === computerNumber) {
-        winner.innerHTML += 'Pareggio.';
+        winner.innerHTML = 'Pareggio.';
     } else if (userNumber > computerNumber) {
-        winner.innerHTML('User vince.');
+        winner.innerHTML = 'User vince.';
     } else {
-        winner.innerHTML += 'Computer vince.';
+        winner.innerHTML = 'Computer vince.';
     }
 })
