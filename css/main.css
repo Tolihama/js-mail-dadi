@@ -3,10 +3,43 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main > * {
+    width: 100%;
 }
 
 section {
-    display: flex;
-    justify-content: center;
+    padding: 50px;
+    margin: 20px;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+
+section div {
+    padding: 10px;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+.mail-section {
+    background-color: orange;
+}
+
+.dadi-section {
+    background-color: palegreen;
 }
